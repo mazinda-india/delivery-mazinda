@@ -85,7 +85,7 @@ const OrderList = () => {
     setLoading(true);
     (async () => {
       try {
-        const { data } = await axios.post("/api/order/fetch-orders");
+        const { data } = await axios.get("/api/order/fetch-orders");
         console.log(data);
         if (data.success) {
           setOrders(data.foodOrders.reverse());
