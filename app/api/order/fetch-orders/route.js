@@ -4,11 +4,9 @@ import FoodOrder from "@/models/FoodOrder";
 
 export async function POST() {
   try {
-    console.log("here");
     await connectDB();
 
-    let foodOrders = await FoodOrder.find();
-    console.log(foodOrders);
+    let foodOrders = await FoodOrder.find({ userVerified: false });
 
     return NextResponse.json({
       success: true,
