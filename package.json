@@ -11,8 +11,10 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.321.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1",

@@ -8,7 +8,7 @@ export async function POST(req) {
     await connectDB();
 
     let foodOrder = await FoodOrder.findById(orderId);
-
+    console.log(orderId);
     if (!foodOrder.vendorVerified) {
       //   foodOrder.updateOne({ _id: orderId }, { $set: { vendorVerified: true } });
       foodOrder.vendorVerified = true;
