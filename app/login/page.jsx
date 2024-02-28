@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -16,7 +17,7 @@ const LoginPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ phone, password }),
       });
 
       if (!response.ok) {
@@ -40,9 +41,10 @@ const LoginPage = () => {
             <input
               type="text"
               className="rounded-md my-1 bg-muted"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              value={phone}
+              placeholder="
+              Mobile No."
+              onChange={(e) => setPhone(e.target.value)}
             />
           </label>
         </div>
@@ -64,6 +66,9 @@ const LoginPage = () => {
         >
           Login
         </button>
+        <Link href={"/signup"} className="mt-3">
+          Don't have an account?
+        </Link>
       </form>
     </div>
   );

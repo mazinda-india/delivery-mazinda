@@ -32,9 +32,9 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="w-screen h-[70vh] flex items-center justify-center">
+    <div className="w-screen h-[70vh] flex items-center justify-center ">
       <form
-        className="flex flex-col items-center bg-white p-4 rounded-xl border"
+        className="flex flex-col items-center bg-white p-8 rounded-xl border "
         onSubmit={handleSignup}
       >
         <p>Please signup</p>
@@ -89,10 +89,7 @@ const SignupPage = () => {
         >
           SignUp
         </button>
-        <Link
-          href={"/login"}
-          className="bg-[#F17E13] py-2 px-5 text-white shadow-md shadow-[#F17E13] mt-3 rounded-lg"
-        >
+        <Link href={"/login"} className="mt-3">
           Go To Login
         </Link>
       </form>
