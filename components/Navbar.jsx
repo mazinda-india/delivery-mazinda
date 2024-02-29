@@ -26,7 +26,7 @@ const Navbar = () => {
       </div>
 
       <div className="text-center">
-        <span>Welcome, {decoded?.name} !</span>
+        {decoded && <span>Welcome, {decoded?.name} !</span>}{" "}
       </div>
     </nav>
   );

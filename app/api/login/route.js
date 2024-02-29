@@ -7,8 +7,10 @@ import { cookies } from "next/headers";
 
 export const POST = async (req) => {
   await connectDB();
-  const { email, password } = await req.json();
-  const userdata = await DeliveryBoy.findOne({ email });
+  const { phone, password } = await req.json();
+  const userdata = await DeliveryBoy.findOne({
+    phone,
+  });
   if (!userdata) {
     return NextResponse.json({ message: "No user Exist" }, { status: 400 });
   }

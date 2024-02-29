@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -19,7 +17,7 @@ const LoginPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ phone, password }),
       });
 
       if (!response.ok) {
@@ -34,30 +32,43 @@ const LoginPage = () => {
   return (
     <div className="w-screen h-[70vh] flex items-center justify-center">
       <form
-        className="flex flex-col items-center bg-white p-4 rounded-xl border gap-2"
+        className="flex flex-col items-center bg-white p-4 rounded-xl border"
         onSubmit={handleLogin}
       >
-        <p>Only registered user of this website can access this webpage</p>
+        <p>Only resgistered yser of this website can access this webpage</p>
         <div>
-          <Input
-            type="text"
-            value={email}
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <label>
+            <input
+              type="text"
+              className="rounded-md my-1 bg-muted"
+              value={phone}
+              placeholder="
+              Mobile No."
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </label>
         </div>
         <div>
-          <Input
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <label>
+            <input
+              type="password"
+              className="rounded-md my-1 bg-muted"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <Button type="submit" className="bg-[#F17E13]">
+        <button
+          type="submit"
+          className="bg-[#F17E13] py-2 px-5 text-white shadow-md shadow-[#F17E13] mt-3 rounded-lg"
+        >
           Login
-        </Button>
+        </button>
+        <Link href={"/signup"} className="mt-3">
+          Don't have an account?
+        </Link>
       </form>
     </div>
   );
