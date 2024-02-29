@@ -4,6 +4,7 @@ import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+
 export const POST = async (req) => {
   await connectDB();
   const { email, password } = await req.json();

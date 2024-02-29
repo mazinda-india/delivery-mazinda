@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,39 +34,30 @@ const LoginPage = () => {
   return (
     <div className="w-screen h-[70vh] flex items-center justify-center">
       <form
-        className="flex flex-col items-center bg-white p-4 rounded-xl border"
+        className="flex flex-col items-center bg-white p-4 rounded-xl border gap-2"
         onSubmit={handleLogin}
       >
-        <p>Only resgistered yser of this website can access this webpage</p>
+        <p>Only registered user of this website can access this webpage</p>
         <div>
-          <label>
-            <input
-              type="text"
-              className="rounded-md my-1 bg-muted"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+          <Input
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div>
-          <label>
-            <input
-              type="password"
-              className="rounded-md my-1 bg-muted"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          <Input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button
-          type="submit"
-          className="bg-[#F17E13] py-2 px-5 text-white shadow-md shadow-[#F17E13] mt-3 rounded-lg"
-        >
+        <Button type="submit" className="bg-[#F17E13]">
           Login
-        </button>
+        </Button>
       </form>
     </div>
   );
