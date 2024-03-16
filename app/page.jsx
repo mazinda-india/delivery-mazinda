@@ -1,4 +1,5 @@
 import OrderList from "@/components/OrderList";
+import UserDetails from "@/components/UserDetails";
 import { headers } from "next/headers";
 import React from "react";
 // const getData = async () => {
@@ -17,6 +18,7 @@ const Home = async () => {
   // const data = await getData();
   return (
     <div className="p-2">
+      <UserDetails />
       <OrderList />
     </div>
   );
