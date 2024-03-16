@@ -10,8 +10,9 @@ export default function Available({ id }) {
   useEffect(() => {
     async function getInitial() {
       try {
-        const res = fetch("/api/delivery", { cache: "no-cache" });
-        const data = await res.json();
+        const response = await fetch("/api/delivery", { cache: "no-cache" });
+
+        const data = await response.json();
         if (data.success) {
           setIsAvailable(data.isAvailable);
         }
@@ -20,7 +21,7 @@ export default function Available({ id }) {
       }
     }
     getInitial();
-  });
+  }, []);
   const handleSwitchToggle = async () => {
     try {
       setIsAvailable(!isAvailable);
