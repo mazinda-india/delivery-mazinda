@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 const LoginPage = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -35,37 +37,30 @@ const LoginPage = () => {
         className="flex flex-col items-center bg-white p-4 rounded-xl border"
         onSubmit={handleLogin}
       >
-        <p>Only resgistered yser of this website can access this webpage</p>
+        <p>Only registered user of this website can access this webpage</p>
         <div>
-          <label>
-            <input
-              type="text"
-              className="rounded-md my-1 bg-muted"
-              value={phone}
-              placeholder="
+          <Input
+            type="text"
+            value={phone}
+            placeholder="
               Mobile No."
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </label>
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </div>
         <div>
-          <label>
-            <input
-              type="password"
-              className="rounded-md my-1 bg-muted"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          {/* <label> */}
+          <Input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {/* </label> */}
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button
-          type="submit"
-          className="bg-[#F17E13] py-2 px-5 text-white shadow-md shadow-[#F17E13] mt-3 rounded-lg"
-        >
+        <Button type="submit" className="bg-[#F17E13]">
           Login
-        </button>
+        </Button>
         <Link href={"/signup"} className="mt-3">
           Don't have an account?
         </Link>

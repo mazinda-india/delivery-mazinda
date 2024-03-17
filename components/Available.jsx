@@ -43,7 +43,9 @@ export default function Available({ id }) {
   return (
     <div className="flex items-center space-x-2">
       <Switch checked={isAvailable} onCheckedChange={handleSwitchToggle} />
-      <Label htmlFor="available-mode">Available?</Label>
+      <Label htmlFor="available-mode">
+        {isAvailable ? "Available" : "Unavailable"}
+      </Label>
     </div>
   );
 }

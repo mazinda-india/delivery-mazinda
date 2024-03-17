@@ -17,7 +17,7 @@ import React from "react";
 const Home = async () => {
   // const data = await getData();
   return (
-    <div className="p-2">
+    <div className="p-2 md:w-1/2 mx-auto">
       <UserDetails />
       <OrderList />
     </div>
