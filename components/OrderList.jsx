@@ -156,6 +156,18 @@ const OrderList = () => {
                   <CardDescription>
                     <span>Order ID: {order._id.slice(-4)}</span>
                     <br />
+                    <span
+                      className={`p-2 my-2  inline-block rounded-xl  ${
+                        order.isReady === true
+                          ? "bg-green-500 text-white font-bold"
+                          : "bg-amber-300 text-white font-bold"
+                      }`}
+                    >
+                      {order.isReady === true
+                        ? "Ready for pickup"
+                        : "Not ready yet"}
+                    </span>
+                    <br />
                     {remainingMinutes === 0 && remainingSeconds === 0 ? (
                       <span className="font-bold text-red-500 text-lg">
                         YOU ARE LATE{" "}
