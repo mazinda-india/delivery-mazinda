@@ -20,8 +20,8 @@ export default function UserDetails() {
     getMe();
   }, []);
   return (
-    <div className="flex justify-between items-center gap-5 mb-5">
-      {decoded && <span>Welcome, {decoded.name}</span>}
+    <div className="flex justify-between items-center gap-5 mt-5 mb-7 px-1">
+      {decoded && <span>{decoded.name}</span>}
       {decoded && <Available id={decoded.id} />}
     </div>
   );
